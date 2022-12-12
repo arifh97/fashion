@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row items-center">
                 <NuxtLink to="/" class="flex items-center w-3/12">
-                    <img src="@/assets/img/logo.svg" alt="" class="w-16 h-16" />
+                    <img src="/img/logo.svg" alt="" class="w-16 h-16" />
                     <span class="font-medium text-body pl-6 text-3xl">gFashion</span>
                 </NuxtLink>
                 <form action="#" class="w-6/12">

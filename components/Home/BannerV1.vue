@@ -20,7 +20,7 @@
                                 </div>
                                 <div class="w-6/12">
                                     <div class="w-[660px] h-[820px] ml-auto">
-                                        <img src="@/assets/img/banner-1.png" alt="">
+                                        <img src="/img/banner-1.png" alt="">
                                     </div>
                                 </div>
                             </div>

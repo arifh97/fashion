@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="w-4/12 flex items-center">
                         <div class="w-[100px] h-[100px] rounded-xl flex items-center justify-center">
-                            <img src="@/assets/img/headphone.png" alt="">
+                            <img src="/img/headphone.png" alt="">
                         </div>
                         <div class="min-w-max w-full pl-7">
                             <h4 class="font-medium text-2xl leading-normal text-[#333333]">24 Customer Support</h4>
@@ -14,7 +14,7 @@
                     </div>
                     <div class="w-4/12 flex items-center">
                         <div class="w-[100px] h-[100px] rounded-xl flex items-center justify-center">
-                            <img src="@/assets/img/shart.png" alt="">
+                            <img src="/img/shart.png" alt="">
                         </div>
                         <div class="min-w-max w-full pl-7">
                             <h4 class="font-medium text-2xl leading-normal text-[#333333]">Authentic Products</h4>
@@ -23,7 +23,7 @@
                     </div>
                     <div class="w-4/12 flex items-center">
                         <div class="w-[100px] h-[100px] rounded-xl flex items-center justify-center">
-                            <img src="@/assets/img/dollar.png" alt="">
+                            <img src="/img/dollar.png" alt="">
                         </div>
                         <div class="min-w-max w-full pl-7">
                             <h4 class="font-medium text-2xl leading-normal text-[#333333]">Secure Payment</h4>
@@ -32,7 +32,7 @@
                     </div>
                     <div class="w-4/12 flex items-center">
                         <div class="w-[100px] h-[100px] rounded-xl flex items-center justify-center">
-                            <img src="@/assets/img/percentance.png" alt="">
+                            <img src="/img/percentance.png" alt="">
                         </div>
                         <div class="min-w-max w-full pl-7">
                             <h4 class="font-medium text-2xl leading-normal text-[#333333]">Best Prices & Offers</h4>
@@ -47,7 +47,7 @@
                 <div class="row justify-between">
                     <div class="w-6/12">
                         <NuxtLink to="/" class="flex items-center w-3/12">
-                            <img src="@/assets/img/logo.svg" alt="" class="w-16 h-16" />
+                            <img src="/img/logo.svg" alt="" class="w-16 h-16" />
                             <span class="font-medium text-body pl-6 text-3xl">gFashion</span>
                         </NuxtLink>
                         <div class="my-10">
@@ -59,11 +59,11 @@
                         <div class="flex items-center gap-2">
                             <NuxtLink to="/"
                                 class="overflow-hidden border-1 border-solid border-[#A6A6A6] rounded-xl hover:opacity-80">
-                                <img src="@/assets/img/apple-badge.jpg" alt="appstore" />
+                                <img src="/img/apple-badge.jpg" alt="appstore" />
                             </NuxtLink>
                             <NuxtLink to="/"
                                 class="overflow-hidden border-1 border-solid border-[#A6A6A6] rounded-xl hover:opacity-80">
-                                <img src="@/assets/img/play-store-badge.jpg" alt="appstore" />
+                                <img src="/img/play-store-badge.jpg" alt="appstore" />
                             </NuxtLink>
                         </div>
                     </div>
@@ -146,7 +146,7 @@
                         <p class="font-medium leading-normal text-[#828282]">&copy; 2022 Copyright All Right Reserved by GrameenFashion</p>
                     </div>
                     <div class="w-3/12 text-right">
-                        <img src="@/assets/img/payment.png" alt="">
+                        <img src="/img/payment.png" alt="">
                     </div>
                 </div>
             </div>

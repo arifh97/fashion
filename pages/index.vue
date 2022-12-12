@@ -25,7 +25,7 @@
                     </div>
                     <div class="w-1/2">
                         <div
-                            class="rounded-[20px] overflow-hidden bg-[url('@/assets/img/cate-bg-2.jpg')] bg-right-top bg-cover bg-no-repeat">
+                            class="rounded-[20px] overflow-hidden bg-[url('/img/cate-bg-2.jpg')] bg-right-top bg-cover bg-no-repeat">
                             <div class="w-2/3 py-16 px-16">
                                 <span class="block text-orange-500 text-2xl leading-9 mb-4 font-semibold">Buy 1 Get
                                     1</span>
