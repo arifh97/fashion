@@ -19,7 +19,12 @@ export default defineNuxtConfig({
         '@fortawesome/fontawesome-svg-core/styles.css'
     ],
     modules: [
-        '@pinia/nuxt',
+        ['@pinia/nuxt', {
+          autoImports: [
+            'defineStore',
+            ['defineStore', 'definePiniaStore'],
+          ],
+        }],
         '@nuxtjs/tailwindcss',
     ],
     

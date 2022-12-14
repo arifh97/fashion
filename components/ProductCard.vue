@@ -10,19 +10,7 @@
             </NuxtLink>
             <div
                 class="absolute flex-col top-0 left-0 w-full h-full bg-black bg-opacity-40 flex items-center justify-center transition-all opacity-0 group-hover:opacity-100">
-                <div class="flex items-center justify-around gap-2">                    
-                    <button @click="deCrement()"
-                        class="w-12 h-12 rounded-full border border-solid border-white text-white hover:bg-primary-700 hover:border-primary-700">
-                        <font-awesome-icon icon="fa-solid fa-minus" />
-                    </button>                    
-                    <span
-                        class="w-12 h-12 rounded-full border border-solid border-white flex items-center justify-center bg-white text-primary-700">{{count}}</span>
-                    <button @click="inCrement()"
-                        class="w-12 h-12 rounded-full border border-solid border-white text-white hover:bg-primary-700 hover:border-primary-700">
-                        <font-awesome-icon icon="fa-solid fa-plus" />
-                    </button>
-                </div>
-                <add-to-cart :id="props.id" :title="props.title" :price="props.price - props.price * props.discount / 100" :img="props.img" />
+                <add-to-cart :cart-data="props" />
                 <NuxtLink to="/" class="absolute left-0 bottom-0 text-center py-2 bg-[#F2F2F2] w-full">
                     Details <font-awesome-icon icon="fa-solid fa-arrow-right" />
                 </NuxtLink>
@@ -50,19 +38,7 @@
 </template>
 
 <script setup>
-const props = defineProps(['id', 'title', 'img', 'status', 'discount', 'price', 'rating', 'categorey']);
-const count = ref(1);
-function inCrement() {
-    count.value++
-    console.log(count.value)
-}
-function deCrement() {
-    if(count.value == 1){
-        count.value = 1
-    } else{
-        count.value--
-    }
-}
+    const props = defineProps(['id', 'title', 'img', 'status', 'discount', 'price', 'rating', 'categorey']);
 </script>
 
 <style lang="scss" scoped>

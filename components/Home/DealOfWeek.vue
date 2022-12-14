@@ -4,7 +4,7 @@
         <div class="row">
             <div class="w-full">
                 <swiper :loop="false" :navigation="{ nextEl: '#dealNext', prevEl: '#dealPrev' }" :space-between="30"
-                    :modules="modules" :breakpoints="breakpoints" :autoplay="{delay: 3000, disableOnInteraction: false,}">
+                    :modules="modules" :breakpoints="breakpoints" :autoplay="false">
                     <swiper-slide v-for="item in data" :key="item">
                         <ProductCard :id='item.id' :title="item.title" :img="item.img" :price="item.price"
                             :discount="item.discount" :rating="item.rating" :categorey="item.categorey"

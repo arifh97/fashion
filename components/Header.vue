@@ -23,8 +23,9 @@
                 <div class="w-3/12">
                     <div class="flex items-center flex-wrap justify-end gap-2.5">
                         <button
-                            class="hover:text-primary-700 hover:bg-gray-100 rounded-full w-12 h-12 flex items-center justify-center text-gray-600 transition-all">
+                            class="relative hover:text-primary-700 hover:bg-gray-100 rounded-full w-12 h-12 flex items-center justify-center text-gray-600 transition-all">
                             <font-awesome-icon icon="fa-regular fa-heart" />
+                            <span class="text-xs text-white flex items-center justify-center bg-orange-500 absolute right-0 top-[-4px] w-5 h-5 rounded-full" v-if="wishlist.$state.item.length!= 0">{{wishlist.$state.item.length}}</span>
                         </button>
                         <button
                             class="hover:text-primary-700 hover:bg-gray-100 group rounded-full w-12 h-12 flex items-center justify-center text-gray-600 transition-all relative">
@@ -138,7 +139,10 @@
 
 <script setup>
     import {useCartStore} from '@/stores/cart';
+    import {useWishList} from '@/stores/wishlist';
     const cart = useCartStore();
+    const wishlist = useWishList()
+
 </script>
 
 <style lang="scss" scoped>
