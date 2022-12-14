@@ -29,7 +29,7 @@
                         <button
                             class="hover:text-primary-700 hover:bg-gray-100 group rounded-full w-12 h-12 flex items-center justify-center text-gray-600 transition-all relative">
                             <font-awesome-icon icon="fa-solid fa-bag-shopping"/>
-                            <!-- <span class="text-xs text-white flex items-center justify-center bg-orange-500 absolute right-0 top-[-4px] w-5 h-5 rounded-full" v-if="cart.length != 0">{{cart.length}}</span> -->
+                            <span class="text-xs text-white flex items-center justify-center bg-orange-500 absolute right-0 top-[-4px] w-5 h-5 rounded-full" v-if="cart.$state.cart.length!= 0">{{cart.$state.cart.length}}</span>
 
                             <!-- <div class="z-10 absolute opacity-0 invisible group-hover:opacity-100 group-hover:visible top-full right-0 min-w-[400px] bg-white rounded-lg shadow-md block">
                                 <div class="max-h-96 overflow-auto p-5">
@@ -137,7 +137,8 @@
 </template>
 
 <script setup>
-
+    import {useCartStore} from '@/stores/cart';
+    const cart = useCartStore();
 </script>
 
 <style lang="scss" scoped>
