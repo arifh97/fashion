@@ -25,27 +25,31 @@
                         <button
                             class="relative hover:text-primary-700 hover:bg-gray-100 rounded-full w-12 h-12 flex items-center justify-center text-gray-600 transition-all">
                             <font-awesome-icon icon="fa-regular fa-heart" />
-                            <span class="text-xs text-white flex items-center justify-center bg-orange-500 absolute right-0 top-[-4px] w-5 h-5 rounded-full" v-if="wishlist.$state.item.length!= 0">{{wishlist.$state.item.length}}</span>
+                            <span class="text-xs text-white flex items-center justify-center bg-orange-500 absolute right-0 top-[-4px] w-5 h-5 rounded-full" v-if="wishlist.$state.wishlist.length!= 0">{{wishlist.$state.wishlist.length}}</span>
                         </button>
                         <button
                             class="hover:text-primary-700 hover:bg-gray-100 group rounded-full w-12 h-12 flex items-center justify-center text-gray-600 transition-all relative">
                             <font-awesome-icon icon="fa-solid fa-bag-shopping"/>
                             <span class="text-xs text-white flex items-center justify-center bg-orange-500 absolute right-0 top-[-4px] w-5 h-5 rounded-full" v-if="cart.$state.cart.length!= 0">{{cart.$state.cart.length}}</span>
 
-                            <!-- <div class="z-10 absolute opacity-0 invisible group-hover:opacity-100 group-hover:visible top-full right-0 min-w-[400px] bg-white rounded-lg shadow-md block">
+                            <div class="z-10 absolute opacity-0 invisible group-hover:opacity-100 group-hover:visible top-full right-0 min-w-[400px] bg-white rounded-lg shadow-md block">
                                 <div class="max-h-96 overflow-auto p-5">
-                                    <div class="flex items-center relative mb-4" >
+                                    <div class="flex items-center relative mb-4" v-for="item in cart.$state.cart" v-if="cart.$state.cart != 0">
                                         <div class="w-16 h-16 overflow-hidden rounded-xl">
-                                            <img src="item.img" alt="" class="w-full h-full object-cover">
+                                            <img :src="item.img" alt="" class="w-full h-full object-cover">
                                         </div>
                                         <div class="pl-3">
                                             <RouterLink to="/" class="text-body hover:text-primary-700 transition">{{item.title}}</RouterLink>
-                                            <p class="text-left text-body text-xs">2x <strong class="font-semibold text-primary-700">{{item.price}}</strong></p>
+                                            <p class="text-left text-body text-xs">{{item.quity}} <strong class="font-semibold text-primary-700">${{(item.price * item.quity) - ((item.discount * item.quity))}}</strong></p>
                                         </div>
-                                        <div class="cursor-pointer absolute top-6 right-0 text-body hover:text-primary-700 transition"><font-awesome-icon icon="fa-solid fa-xmark" /></div>
+                                        <div class="cursor-pointer absolute top-6 right-0 text-body hover:text-primary-700 transition" @click="cart.removeItem(item)"><font-awesome-icon icon="fa-solid fa-xmark" /></div>
+                                    </div>
+                                    <div class="py-4" v-if="cart.$state.cart.length == 0">
+                                        <h5 class="text-lg mb-4">Cart not found</h5>
+                                        <NuxtLink to="/" class="theme-btn">Shop Now</NuxtLink>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
                             
                         </button>
                         <button class="hover:text-primary-700 flex items-center transition-all">
