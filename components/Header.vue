@@ -6,13 +6,13 @@
                     <img src="/img/logo.svg" alt="" class="w-16 h-16" />
                     <span class="font-medium text-body pl-6 text-3xl">gFashion</span>
                 </NuxtLink>
-                <form action="#" class="w-6/12">
+                <form @submit.prevent="onSearch()" class="w-6/12">
                     <div class="relative">
                         <label for="search"
                             class="absolute top-1/2 translate-y-[-50%] text-gray-600 text-lg left-7 cursor-text focus-within:shadow-sm">
                             <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
                         </label>
-                        <input type="search" placeholder="Search here..." name="" id="search"
+                        <input type="search" placeholder="Search here..." name="" id="search" v-model="searchInput"
                             class="w-full border border-solid border-gray-300 rounded-full outline-none py-4 px-14 text-sm placeholder:text-gray-400 focus:border-primary-700" />
                         <button
                             class="absolute top-1/2 translate-y-[-50%] right-1 border-0 py-4 min-w-[144px] rounded-full bg-gray-600 text-white font-medium text-base leading-none px-10 hover:bg-primary-700 transition">
@@ -22,11 +22,11 @@
                 </form>
                 <div class="w-3/12">
                     <div class="flex items-center flex-wrap justify-end gap-2.5">
-                        <button
+                        <NuxtLink to="/wishlist"
                             class="relative hover:text-primary-700 hover:bg-gray-100 rounded-full w-12 h-12 flex items-center justify-center text-gray-600 transition-all">
                             <font-awesome-icon icon="fa-regular fa-heart" />
                             <span class="text-xs text-white flex items-center justify-center bg-orange-500 absolute right-0 top-[-4px] w-5 h-5 rounded-full" v-if="wishlist.$state.wishlist.length!= 0">{{wishlist.$state.wishlist.length}}</span>
-                        </button>
+                        </NuxtLink>
                         <button
                             class="hover:text-primary-700 hover:bg-gray-100 group rounded-full w-12 h-12 flex items-center justify-center text-gray-600 transition-all relative">
                             <font-awesome-icon icon="fa-solid fa-bag-shopping"/>
@@ -145,7 +145,12 @@
     import {useCartStore} from '@/stores/cart';
     import {useWishList} from '@/stores/wishlist';
     const cart = useCartStore();
-    const wishlist = useWishList()
+    const wishlist = useWishList();
+    const searchInput = ref();
+
+    function onSearch(){
+        navigateTo(`/courses?search=${searchInput.value} `)
+    }
 
 </script>
 

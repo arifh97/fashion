@@ -2,7 +2,7 @@
     <div class="py-24">
         <div class="container">
             <div class="row">
-                <div class="w-4/12" v-for="props in data">
+                <div class="w-3/12" v-for="props in wishlist.$state.wishlist">
                     <div class="group product-card">
                         <div class="w-full overflow-hidden relative rounded pb-[100%]">
                             <div class="block bg-black text-white py-1 px-3 rounded absolute top-2 text-sm left-2 capitalize z-10"
@@ -46,13 +46,8 @@
 </template>
 
 <script setup>
-
-    const data = ref([]);
-    onMounted(() => {
-        const getItem = window.localStorage.getItem('wishlist');
-        data.value = (JSON.parse(getItem))
-    })
-
+    import { useWishList } from '~~/stores/wishlist';
+    const wishlist = useWishList()
 </script>
 
 <style lang="scss" scoped>

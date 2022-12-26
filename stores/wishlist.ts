@@ -12,8 +12,9 @@ export const useWishList = defineStore('wishlist', {
                 alert('Item already added in wishlist')
             }
         },
-        removeWishList(){
-
+        removeWishList(item){
+            this.wishlist.splice(item, 1);
+            useWishList().saveLocalStore();
         },
         saveLocalStore(){
             window.localStorage.setItem('wishlist', JSON.stringify(this.wishlist))

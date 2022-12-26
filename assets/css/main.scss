@@ -10,6 +10,7 @@ body {
 
 .row {
     @apply flex;
+    flex-wrap: wrap;
     margin-left: -12px;
     margin-right: -12px;
     &>* {
@@ -49,7 +50,7 @@ body {
 
 .theme-btn {
     @apply bg-primary-700 transition text-white min-w-[200px] py-3 text-center leading-[36px] font-medium text-lg inline-block rounded-full;
-    &:hover{
+    &:hover {
         @apply bg-orange-500;
     }
 }
