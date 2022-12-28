@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="flex items-center justify-around gap-2">
+        <div class="flex items-center justify-around gap-2" v-if="isCart">
             <button @click="deCrement()"
                 class="w-10 h-10 rounded-full border border-solid border-white text-white hover:bg-primary-700 hover:border-primary-700">
                 <font-awesome-icon icon="fa-solid fa-minus" />
@@ -14,7 +14,7 @@
                 <font-awesome-icon icon="fa-solid fa-plus" />
             </button>
         </div>
-        <button class="theme-btn capitalize mt-3 !px-5 !min-w-max !text-sm" @click="cart.addToCart(cartItem)">add to
+        <button class="theme-btn capitalize mt-3 !px-5 !min-w-max !text-sm" @click="cart.addToCart(cartItem); isCart != isCart"  v-if="!isCart">add to
             cart</button>
         <button class="theme-btn !p-3 !leading-none ml-2 !mt-0 !min-w-max " @click="wishlist.addWishList(cartItem)" v-if="route.name != 'wishlist'">
             <font-awesome-icon icon="fa-regular fa-heart" />
@@ -60,6 +60,8 @@
     }
 
     const route = useRoute();
+
+    const isCart =ref(false);
 
 </script>
 

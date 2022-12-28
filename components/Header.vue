@@ -7,14 +7,17 @@
                     <span class="font-medium text-body pl-6 text-3xl">gFashion</span>
                 </NuxtLink>
                 <form @submit.prevent="onSearch()" class="w-6/12">
-                    <div class="relative">
+                    <div class="relative group">
                         <label for="search"
                             class="absolute top-1/2 translate-y-[-50%] text-gray-600 text-lg left-7 cursor-text focus-within:shadow-sm">
                             <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
                         </label>
                         <input type="search" placeholder="Search here..." name="" id="search" v-model="searchInput"
                             class="w-full border border-solid border-gray-300 rounded-full outline-none py-4 px-14 text-sm placeholder:text-gray-400 focus:border-primary-700" />
-                        <button
+                            <ul class="absolute top-full left-0 w-full bg-white z-10 p-4 rounded-md shadow-xl">
+                                <li v-for="data in searchHistory" :key="data"><button type="button" @click="getDataInSearch(data)">{{ data }}</button></li>
+                            </ul>
+                        <button type="submit"
                             class="absolute top-1/2 translate-y-[-50%] right-1 border-0 py-4 min-w-[144px] rounded-full bg-gray-600 text-white font-medium text-base leading-none px-10 hover:bg-primary-700 transition">
                             Search
                         </button>
@@ -146,11 +149,23 @@
     import {useWishList} from '@/stores/wishlist';
     const cart = useCartStore();
     const wishlist = useWishList();
-    const searchInput = ref();
-
-    function onSearch(){
-        navigateTo(`/courses?search=${searchInput.value} `)
+    const searchInput = ref('');
+    const searchHistory = reactive([]);
+    
+    function getsItem(){
+        const x = window.localStorage.getItem('search_history');
+        searchHistory.value = 'arif'
+        // searchHistory.push(JSON.parse(x));
     }
+    function onSearch(){
+        searchHistory.push(searchInput.value);
+        window.localStorage.setItem('search_history', JSON.stringify(searchHistory))
+        navigateTo(`/shop?search=${searchInput.value}`);
+    }
+    
+    onMounted (() => {
+        getsItem()
+    })
 
 </script>
 
