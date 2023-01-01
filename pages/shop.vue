@@ -2,7 +2,7 @@
     <SectionPadding>
         <div class="container">
             <div class="row" v-if="shop.length">
-                <div class="w-4/12" v-for="item in shop" :key="item">
+                <div class="w-3/12" v-for="item in shop" :key="item">
                     <ProductCard class="mb-10" :id="item.id" :title="item.title" :img="item.img" :status="item.status" :discount="item.discount" :price="item.price" :rating="item.rating" :categorey="item.categorey"></ProductCard>
                 </div>
             </div>

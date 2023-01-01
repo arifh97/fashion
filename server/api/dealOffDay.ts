@@ -2,7 +2,7 @@ export default eventHandler((e) => {
     return [
         {
             "id": 1,
-            "title": "Product Name",
+            "title": "Payra2",
             "img": "/img/products/1.jpg",
             "status":"new",
             "discount": "0",
@@ -12,7 +12,7 @@ export default eventHandler((e) => {
         },
         {
             "id": 2,
-            "title": "Product Name",
+            "title": "Payra",
             "img": "/img/products/2.jpg",
             "status":"new",
             "discount": "5",
@@ -22,7 +22,7 @@ export default eventHandler((e) => {
         },
         {
             "id": 3,
-            "title": "Product Name",
+            "title": "Dragon",
             "img": "/img/products/3.jpg",
             "status":"new",
             "discount": "15",
@@ -32,7 +32,7 @@ export default eventHandler((e) => {
         },
         {
             "id": 4,
-            "title": "Product Name",
+            "title": "Badana",
             "img": "/img/products/4.jpg",
             "status":"out of stock",
             "discount": "10",
@@ -42,7 +42,7 @@ export default eventHandler((e) => {
         },
         {
             "id": 5,
-            "title": "Product Name",
+            "title": "Turmuz",
             "img": "/img/products/5.jpg",
             "status":"new",
             "discount": "10",
@@ -52,7 +52,7 @@ export default eventHandler((e) => {
         },
         {
             "id": 6,
-            "title": "Product Name",
+            "title": "Mango",
             "img": "/img/products/6.jpg",
             "status":"new",
             "discount": "25",
@@ -62,7 +62,7 @@ export default eventHandler((e) => {
         },
         {
             "id": 7,
-            "title": "Product Name",
+            "title": "Lusu",
             "img": "/img/products/7.jpg",
             "status":"new",
             "discount": "10",

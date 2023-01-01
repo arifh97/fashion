@@ -1,5 +1,5 @@
 <template>
-    <header class="pt-10 pb-8">
+    <header class="pt-10 pb-8 relative z-10">
         <div class="container">
             <div class="row items-center">
                 <NuxtLink to="/" class="flex items-center w-3/12">
@@ -14,8 +14,11 @@
                         </label>
                         <input type="search" placeholder="Search here..." name="" id="search" v-model="searchInput"
                             class="w-full border border-solid border-gray-300 rounded-full outline-none py-4 px-14 text-sm placeholder:text-gray-400 focus:border-primary-700" />
-                            <ul class="absolute top-full left-0 w-full bg-white z-10 p-4 rounded-md shadow-xl">
-                                <li v-for="data in searchHistory" :key="data"><button type="button" @click="getDataInSearch(data)">{{ data }}</button></li>
+                            <ul class="absolute top-full left-0 w-full bg-white z-10 p-4 rounded-md shadow-xl max-h-[150px] overflow-auto" v-if="searchHistory.length">
+                                <li v-for="data in searchHistory" :key="data" class="flex items-center justify-center border-b-2 border-gray-300 border-solid border-bottom">
+                                    <button type="button" class="flex-auto text-left" @click="getDataInSearch(data)">{{ data }}</button>
+                                    <button type="button" class="flex-auto p-2 text-right" @click="removeSearch(data)">X</button>
+                                </li>
                             </ul>
                         <button type="submit"
                             class="absolute top-1/2 translate-y-[-50%] right-1 border-0 py-4 min-w-[144px] rounded-full bg-gray-600 text-white font-medium text-base leading-none px-10 hover:bg-primary-700 transition">
@@ -91,7 +94,7 @@
                             </nuxt-link>
                         </li>
                         <li>
-                            <nuxt-link to="/"
+                            <nuxt-link to="/shop"
                                 class="text-sm leading-normal text-body font-normal relative hover:text-primary-700 transition-all"
                                 activeClass="text-primary-700">
                                 Shop
@@ -150,21 +153,30 @@
     const cart = useCartStore();
     const wishlist = useWishList();
     const searchInput = ref('');
-    const searchHistory = reactive([]);
-    
-    function getsItem(){
-        const x = window.localStorage.getItem('search_history');
-        searchHistory.value = 'arif'
-        // searchHistory.push(JSON.parse(x));
-    }
+    const searchHistory = ref([]);
+
     function onSearch(){
-        searchHistory.push(searchInput.value);
-        window.localStorage.setItem('search_history', JSON.stringify(searchHistory))
-        navigateTo(`/shop?search=${searchInput.value}`);
+        if(searchInput.value){
+            searchHistory.value.push(searchInput.value);
+            window.localStorage.setItem('search_history', JSON.stringify(searchHistory.value));
+            navigateTo(`/shop?search=${searchInput.value}`)
+        }
     }
-    
-    onMounted (() => {
-        getsItem()
+    function getSearch(){
+        const data = window.localStorage.getItem('search_history');
+        searchHistory.value = (data ? JSON.parse(data) : []);
+    }
+    function getDataInSearch(data){
+        searchInput.value = data;
+        onSearch();
+    }
+    function removeSearch(data){
+        const check = searchHistory.value.indexOf(data);
+        searchHistory.value.splice(check, 1)
+        window.localStorage.setItem('search_history', JSON.stringify(searchHistory.value));
+    }
+    onMounted(() => {
+        getSearch();
     })
 
 </script>

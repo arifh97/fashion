@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="w-3/12" v-for="props in wishlist.$state.wishlist">
-                    <div class="group product-card">
+                    <div class="group product-card mb-10">
                         <div class="w-full overflow-hidden relative rounded pb-[100%]">
                             <div class="block bg-black text-white py-1 px-3 rounded absolute top-2 text-sm left-2 capitalize z-10"
                                 v-if="props.discount != 0">-{{ props.discount }}%</div>

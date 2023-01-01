@@ -15,8 +15,11 @@ export const useCartStore = defineStore('cart', {
         useCartStore().saveLocalStore();
     },
     removeItem(item){
-        this.cart.splice(item, 1);
-        useCartStore().saveLocalStore();
+        const inItem = this.cart.indexOf(item);
+        console.log(inItem);
+        
+        // this.cart.splice(inItem, 1);
+        // useCartStore().saveLocalStore();
     },
     saveLocalStore(){
         window.localStorage.setItem('cart', JSON.stringify(this.cart));
