@@ -15,7 +15,7 @@
                         <input type="search" placeholder="Search here..." name="" id="search" v-model="searchInput"
                             class="w-full border border-solid border-gray-300 rounded-full outline-none py-4 px-14 text-sm placeholder:text-gray-400 focus:border-primary-700" />
                             <ul class="absolute top-full left-0 w-full bg-white z-10 p-4 rounded-md shadow-xl max-h-[150px] overflow-auto" v-if="searchHistory.length">
-                                <li v-for="data in searchHistory" :key="data" class="flex items-center justify-center border-b-2 border-gray-300 border-solid border-bottom">
+                                <li v-for="data in searchHistory" :key="data" class="flex items-center justify-center border-b border-gray-300 border-solid border-bottom">
                                     <button type="button" class="flex-auto text-left" @click="getDataInSearch(data)">{{ data }}</button>
                                     <button type="button" class="flex-auto p-2 text-right" @click="removeSearch(data)">X</button>
                                 </li>
@@ -157,7 +157,12 @@
 
     function onSearch(){
         if(searchInput.value){
-            searchHistory.value.push(searchInput.value);
+            const index = searchHistory.value.indexOf(searchInput.value);
+            if(index == -1){
+                searchHistory.value.push(searchInput.value);
+            } else{
+                return false;
+            }
             window.localStorage.setItem('search_history', JSON.stringify(searchHistory.value));
             navigateTo(`/shop?search=${searchInput.value}`)
         }
