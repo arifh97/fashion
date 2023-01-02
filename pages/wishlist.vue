@@ -1,7 +1,7 @@
 <template>
     <div class="py-24">
         <div class="container">
-            <div class="row">
+            <div class="row" v-if="wishlist.$state.wishlist.length">
                 <div class="w-3/12" v-for="props in wishlist.$state.wishlist">
                     <div class="group product-card mb-10">
                         <div class="w-full overflow-hidden relative rounded pb-[100%]">
@@ -40,6 +40,11 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="row" v-else>
+                <div class="w-full" >
+                        <h2 class="text-4xl font-bold text-blue-400 italic text-center">No wishlist yet!</h2>
+                    </div>
             </div>
         </div>
     </div>
