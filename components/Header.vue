@@ -50,7 +50,7 @@
                                         </div>
                                         <div class="cursor-pointer absolute top-6 right-0 text-body hover:text-primary-700 transition" @click="cart.removeItem(item)"><font-awesome-icon icon="fa-solid fa-xmark" /></div>
                                     </div>
-                                    <div class="py-4" v-if="cart.$state.cart.length == 0">
+                                    <div class="py-4" v-else>
                                         <h5 class="text-lg mb-4">Cart not found</h5>
                                         <NuxtLink to="/" class="theme-btn">Shop Now</NuxtLink>
                                     </div>

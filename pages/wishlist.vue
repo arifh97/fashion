@@ -14,7 +14,7 @@
                             </NuxtLink>
                             <div
                                 class="absolute flex-col top-0 left-0 w-full h-full bg-black bg-opacity-40 flex items-center justify-center transition-all opacity-0 group-hover:opacity-100">
-                                <add-to-cart :cart-data="props" />
+                                <add-to-cart :cart-data="props" :wishlistData="props" />
                                 <NuxtLink to="/" class="absolute left-0 bottom-0 text-center py-2 bg-[#F2F2F2] w-full">
                                     Details <font-awesome-icon icon="fa-solid fa-arrow-right" />
                                 </NuxtLink>

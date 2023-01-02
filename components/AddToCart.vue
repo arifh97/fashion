@@ -19,8 +19,7 @@
         <button class="theme-btn !p-3 !leading-none ml-2 !mt-0 !min-w-max " @click="wishlist.addWishList(cartItem)" v-if="route.name != 'wishlist'">
             <font-awesome-icon icon="fa-regular fa-heart" />
         </button>
-
-        <button class="theme-btn !px-4 !py-3 !leading-none ml-2 !mt-0 !min-w-max " @click="wishlist.removeWishList(cartItem)" v-if="route.name == 'wishlist'">
+        <button class="theme-btn !px-4 !py-3 !leading-none ml-2 !mt-0 !min-w-max " @click="wishlist.removeItem(props.wishlistData)" v-else>
             <font-awesome-icon icon="fa-solid fa-xmark" />
         </button>
     </div>
@@ -32,7 +31,7 @@
     const cart = useCartStore();
     const wishlist = useWishList();
 
-    const props = defineProps(['cartData']);
+    const props = defineProps(['cartData', 'wishlistData']);
     const count = ref(1);
 
     const cartItem = reactive({
@@ -60,7 +59,6 @@
     }
 
     const route = useRoute();
-
     const isCart =ref(false);
 
 </script>

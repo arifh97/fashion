@@ -14,12 +14,10 @@ export const useCartStore = defineStore('cart', {
         }
         useCartStore().saveLocalStore();
     },
-    removeItem(item){
-        const inItem = this.cart.indexOf(item);
-        console.log(inItem);
-        
-        // this.cart.splice(inItem, 1);
-        // useCartStore().saveLocalStore();
+    removeItem(myItem){
+        const inItem = this.cart.indexOf(myItem);
+        this.cart.splice(inItem, 1);
+        useCartStore().saveLocalStore();
     },
     saveLocalStore(){
         window.localStorage.setItem('cart', JSON.stringify(this.cart));

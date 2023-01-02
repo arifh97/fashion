@@ -99,5 +99,15 @@ export default eventHandler((e) => {
             "rating": "11",
             "categorey": "Category Name",
         },
+        {
+            "id": 100,
+            "title": "Grocery Item",
+            "img": "/img/feature/1.png",
+            "status":"new",
+            "discount": "0",
+            "price": "14",
+            "rating": "11",
+            "categorey": "Category Name",
+        },
     ]
 })
