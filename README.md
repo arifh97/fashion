@@ -20,6 +20,7 @@ pnpm install --shamefully-hoist
 ## Development Server
 
 Start the development server on http://localhost:3000
+Live Sites https://gfashionnuxt.netlify.app/
 
 ```bash
 npm run dev
